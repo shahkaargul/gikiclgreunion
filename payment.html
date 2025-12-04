@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIKI School and College Networking Reunion 2025 - Registration</title>
+    <meta name="description"
+        content="Register for the GIKI School and College Networking Reunion 2025. Reconnect with old friends and celebrate shared memories.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- QRCode.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-placeholder">GIKI</div>
+            <h1>GIKI School and College Networking Reunion 2025</h1>
+            <p>The halls, the laughter, the memories... they are calling us back! Join the GIKI School and College
+                Networking Reunion 2025 to reconnect, reminisce, and celebrate the journey we have shared.</p>
+            <div class="deadline">Form Submission Deadline: 10th December 2025</div>
+            <p class="event-info">27 December 2025 | 10:00 AM - 7:00 PM | GIKI School and College, Topi, Swabi</p>
+        </div>
+
+        <!-- Registration Form -->
+        <div id="registration-view">
+            <div class="instructions">
+                <h3>Payment Instructions</h3>
+                <div class="bank-details">
+                    <p class="warning-note"><strong>Note:</strong> Under no circumstances will the amount be refunded
+                        once deposited.</p>
+                    <p>Please transfer the registration fee to:</p>
+                    <p><strong>Bank:</strong> United Bank Limited</p>
+                    <p><strong>Account Title:</strong> Amir Khan</p>
+                    <p><strong>Account Number:</strong> PK94UNIL0109000297625555</p>
+                    <p style="margin-top: 15px; font-style: italic; color: #666;">Please upload a clear and legible
+                        payment receipt (Image)</p>
+                </div>
+            </div>
+
+            <form id="regForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" required placeholder="e.g. Muhammad Shahkaar">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" required placeholder="e.g. shahkaar@giki.edu.pk">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" required placeholder="e.g. 0300-1234567">
+                </div>
+
+                <div class="form-group">
+                    <label for="cnicFile">CNIC / Form-B / School Badge *</label>
+                    <p class="label-note">
+                        <strong>Note:</strong> Please upload CNIC (PDF or image). This information will be kept
+                        confidential and used only for security verification during the event.<br>
+                        <em>If you are under 18, please upload your school badge or Form-B instead.</em>
+                    </p>
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="cnicFile" accept="image/*,.pdf" required
+                            onchange="updateCNICFileName(this)">
+                        <div class="file-upload-text" id="cnicFileLabel">
+                            Upload CNIC (PDF or Image, Max 10 MB)
+                        </div>
+                    </div>
+                    <div id="cnic-preview-container">
+                        <img id="cnic-preview-image" src="" alt="CNIC Preview">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="batch">Batch / Subject *</label>
+                    <p class="label-note"><strong>Note:</strong> Students mention batch year (e.g., 2019-2021). Teachers
+                        should mention subject.</p>
+                    <input type="text" id="batch" required placeholder="e.g. 2019-2021 or Physics">
+                </div>
+
+                <div class="form-group">
+                    <label>Select Your Category (with applicable fee) *</label>
+                    <p class="label-note"><strong>Note:</strong> Under no circumstances will the amount be refunded once
+                        deposited.</p>
+                    <div class="category-container">
+                        <label class="category-option">
+                            <input type="radio" name="regType" value="Alumni/Former Student - 1,500 PKR">
+                            <span>Alumni/Former Student - 1,500 PKR</span>
+                        </label>
+                        <label class="category-option">
+                            <input type="radio" name="regType" value="Current Student - 1,000 PKR">
+                            <span>Current Student - 1,000 PKR</span>
+                        </label>
+                        <label class="category-option">
+                            <input type="radio" name="regType" value="Former Teacher (Former Staff) - 1,500 PKR">
+                            <span>Former Teacher (Former Staff) - 1,500 PKR</span>
+                        </label>
+                        <label class="category-option">
+                            <input type="radio" name="regType" value="Current Teacher - 1,500 PKR">
+                            <span>Current Teacher - 1,500 PKR</span>
+                        </label>
+                        <label class="category-option">
+                            <input type="radio" name="regType" value="Child (under 12) - 800 PKR">
+                            <span>Child (under 12) - 800 PKR</span>
+                        </label>
+                        <label class="category-option">
+                            <input type="radio" name="regType" value="Spouse - 800 PKR">
+                            <span>Spouse - 800 PKR</span>
+                        </label>
+                        <label class="category-option">
+                            <input type="radio" name="regType" value="Administrative Staff - 1,500 PKR">
+                            <span>Administrative Staff - 1,500 PKR</span>
+                        </label>
+                        <label class="category-option">
+                            <input type="radio" name="regType" value="Support Staff - Free">
+                            <span>Support Staff - Free</span>
+                        </label>
+                        <label class="category-option">
+                            <input type="radio" name="regType"
+                                value="Open Contribution (Any Amount - please mention in sender details)">
+                            <span>Open Contribution (Any Amount - mention in sender details)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Payment Receipt (Screenshot) *</label>
+                    <p class="label-note">Please upload a clear and legible payment receipt (Image)</p>
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="paymentProof" accept="image/*,.pdf" required
+                            onchange="updateFileName(this)">
+                        <div class="file-upload-text" id="fileLabel">
+                            Upload Payment Receipt (PDF or Image, Max 10 MB)
+                        </div>
+                    </div>
+                    <div id="preview-container">
+                        <img id="preview-image" src="" alt="Payment Preview">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="senderDetails">Sender Account Details *</label>
+                    <p class="label-note">
+                        <strong>Note:</strong> If payment was made from someone else's account, please provide:<br>
+                        1. Last 4 digits of the account number<br>
+                        2. Name on the account<br>
+                        3. Enter "N/A" if not applicable
+                    </p>
+                    <input type="text" id="senderDetails" placeholder="e.g. 5555 - John Doe or N/A" required>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I confirm that all information provided is correct and the payment has been made
+                        as per the instructions above.</label>
+                </div>
+
+                <button type="submit" class="btn-submit">Register Now</button>
+            </form>
+        </div>
+
+        <!-- E-Ticket View -->
+        <div id="ticket-container">
+            <div class="ticket">
+                <div class="ticket-header">
+                    <span>Official Entry Pass</span>
+                    <h2>GIKI School and College Reunion 2025</h2>
+                </div>
+
+                <div class="ticket-body">
+                    <div class="ticket-row">
+                        <div class="ticket-label">Attendee Name</div>
+                        <div class="ticket-value" id="ticketName">Muhammad Shahkaar</div>
+                    </div>
+                    <div class="ticket-row">
+                        <div class="ticket-label">Category</div>
+                        <div class="ticket-value" id="ticketType">Alumni/Former Student</div>
+                    </div>
+                    <div class="ticket-row">
+                        <div class="ticket-label">Registration ID</div>
+                        <div class="ticket-id-value" id="ticketID">GIKI-2025-001</div>
+                    </div>
+                </div>
+
+                <div class="qr-holder">
+                    <div id="qrcode"></div>
+                </div>
+
+                <div class="ticket-footer">
+                    <p>27 December 2025 | GIKI School and College, Topi, Swabi</p>
+                    <p>Please present this ticket at the entrance. Valid for one person only.</p>
+                </div>
+            </div>
+
+            <div class="ticket-actions">
+                <button class="btn-print" onclick="window.print()">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2" />
+                        <path d="M6 14h12v8H6z" />
+                    </svg>
+                    Print / Save Ticket
+                </button>
+                <button class="btn-print btn-new-register" onclick="resetForm()">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 4v16m8-8H4" />
+                    </svg>
+                    New Registration
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>2025 GIKI School and College Alumni Association. All rights reserved.</p>
+        <p>Contact: <a href="mailto:contactshahkaar@gmail.com">contactshahkaar@gmail.com</a> | <a
+                href="tel:+923005159901">+92 300 5159901</a></p>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

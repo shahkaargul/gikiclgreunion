@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIKI Reunion 2025 - Ticket Verification</title>
+    <meta name="description" content="Verify your GIKI Reunion 2025 ticket for event entry.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="verify-styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="header-emoji">🎫</span>
+            <h1>GIKI Reunion 2025</h1>
+            <p>Ticket Verification System</p>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Verifying ticket...</p>
+        </div>
+
+        <!-- No ID State -->
+        <div id="no-id-state" class="no-id-state" style="display: none;">
+            <div class="no-id-icon">🔍</div>
+            <h2>No Ticket ID Provided</h2>
+            <p>Please scan a valid QR code from an event ticket to verify entry.</p>
+        </div>
+
+        <!-- Ticket Info (Hidden initially) -->
+        <div id="ticket-info" class="ticket-info" style="display: none;">
+            <div class="status-badge valid" id="status-badge">
+                <svg class="checkmark-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none" stroke="currentColor"
+                        stroke-width="3" />
+                    <path class="checkmark-check" fill="none" stroke="currentColor" stroke-width="3"
+                        d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                </svg>
+                <span id="status-text">Valid Ticket</span>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Ticket ID</div>
+                    <div class="ticket-id" id="ticket-id">GIKI-2025-001</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Attendee Name</div>
+                    <div class="info-value" id="attendee-name">Muhammad Shahkaar</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Category</div>
+                    <div class="info-value" id="category">Alumni/Former Student - 1,500 PKR</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Email</div>
+                    <div class="info-value" style="font-size: 1rem; font-family: 'Inter', sans-serif; font-weight: 500;"
+                        id="email">shahkaar@giki.edu.pk</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Phone</div>
+                    <div class="info-value" style="font-size: 1rem; font-family: 'Inter', sans-serif; font-weight: 500;"
+                        id="phone">0300-1234567</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Registration Date</div>
+                    <div class="info-value" style="font-size: 1rem; font-family: 'Inter', sans-serif; font-weight: 500;"
+                        id="registration-date">Dec 3, 2025</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error State (Hidden initially) -->
+        <div id="error-state" class="error-state" style="display: none;">
+            <svg class="error-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h2 id="error-title">Ticket Not Found</h2>
+            <p id="error-message">This ticket ID does not exist in our system. Please verify the QR code and try again.
+            </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div id="actions" class="actions" style="display: none;">
+            <button class="btn btn-primary" id="admit-btn" onclick="admitAttendee()">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Admit Entry
+            </button>
+            <button class="btn btn-secondary" onclick="location.reload()">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                Scan Another
+            </button>
+        </div>
+    </div>
+
+    <!-- Celebration Container -->
+    <div id="celebration" class="success-celebration"></div>
+
+    <!-- External JavaScript -->
+    <script src="verify-script.js"></script>
+</body>
+
+</html>
